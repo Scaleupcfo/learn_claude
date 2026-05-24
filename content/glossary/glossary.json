@@ -1,0 +1,22 @@
+[
+  { "term": "Claude", "plainEnglish": "Anthropic's AI assistant. You give it instructions in plain English; it returns text, code, images, or actions.", "cxoAnalogy": "An always-on analyst who is fast, literal, and tireless — but needs a clear brief." },
+  { "term": "Claude Code", "plainEnglish": "The terminal/IDE app that lets Claude read and edit files on your computer.", "cxoAnalogy": "Claude with hands. It can open documents, change them, and run things — not just chat." },
+  { "term": "Claude Cowork", "plainEnglish": "The browser experience of working with Claude inside web apps and shared spaces.", "cxoAnalogy": "Claude in the meeting room — visible to others on your team." },
+  { "term": "Prompt", "plainEnglish": "The instruction you give Claude. The clearer the brief, the better the output.", "cxoAnalogy": "A brief to a contractor: scope, audience, constraints, success criteria." },
+  { "term": "Context", "plainEnglish": "Everything Claude can 'see' in this conversation — your prompt, attached files, and prior messages.", "cxoAnalogy": "Background materials in a meeting — what Claude already has on the table." },
+  { "term": "Model", "plainEnglish": "A specific version of Claude. Bigger models are smarter but slower; smaller ones are faster and cheaper.", "cxoAnalogy": "Senior vs junior consultant. Use senior for hard things, junior for fast and easy ones." },
+  { "term": "Opus", "plainEnglish": "Anthropic's most capable Claude model. Use it for complex, multi-step thinking.", "cxoAnalogy": "Your partner at the firm." },
+  { "term": "Sonnet", "plainEnglish": "Anthropic's balanced Claude model. Strong general default for most work.", "cxoAnalogy": "Your VP — handles the bulk of work, well." },
+  { "term": "Haiku", "plainEnglish": "Anthropic's fastest, cheapest Claude model. Use it for short, simple tasks at high volume.", "cxoAnalogy": "Your fastest analyst — perfect for triage and quick passes." },
+  { "term": "Token", "plainEnglish": "The unit Claude reads and writes in — roughly a word piece. You're billed per token in and out.", "cxoAnalogy": "Like billable minutes. Pay attention to how many you spend on long inputs." },
+  { "term": "MCP", "plainEnglish": "Model Context Protocol — a standard that lets Claude talk to other apps (your email, drive, calendar, etc.) through 'MCP servers'.", "cxoAnalogy": "The USB-C of AI integrations. Plug a new tool in once and any MCP-aware AI can use it." },
+  { "term": "Connector", "plainEnglish": "A specific MCP server you've enabled, e.g. Gmail or Figma. Connectors give Claude permission to read/write inside that app.", "cxoAnalogy": "A signed access pass for a specific building." },
+  { "term": "Subagent", "plainEnglish": "A child Claude session you can spin up to handle a piece of work, with its own scratchpad and tools.", "cxoAnalogy": "Delegating a sub-task to a junior so the partner can keep focus on the big picture." },
+  { "term": "Hook", "plainEnglish": "A small script Claude Code runs automatically at certain points (before a tool call, after a file edit, etc.).", "cxoAnalogy": "An office SOP — 'every time X happens, do Y'." },
+  { "term": "Slash command", "plainEnglish": "A shortcut you type into Claude Code starting with '/' to trigger a specific behavior (e.g. /review).", "cxoAnalogy": "Speed dial. One short keystroke triggers a complex routine." },
+  { "term": "Worktree", "plainEnglish": "A separate working copy of a code project so two things can be edited without stepping on each other.", "cxoAnalogy": "A second copy of a contract you can mark up without messing up the original." },
+  { "term": "Skill", "plainEnglish": "A reusable bundle of instructions Claude follows when a relevant task comes up.", "cxoAnalogy": "A playbook your team can apply when the right situation arises." },
+  { "term": "Permission", "plainEnglish": "What Claude is allowed to read or do. You can grant or revoke at a granular level.", "cxoAnalogy": "Role-based access. Just like with employees — give the minimum needed." },
+  { "term": "Hallucination", "plainEnglish": "When Claude states something confidently that isn't true. Less common with strong context and verification.", "cxoAnalogy": "An overconfident new hire winging an answer. Always verify before you ship." },
+  { "term": "Temperature", "plainEnglish": "A dial for randomness. Low = consistent and conservative. High = more creative and varied.", "cxoAnalogy": "Brainstorm mode vs. board-paper mode." }
+]

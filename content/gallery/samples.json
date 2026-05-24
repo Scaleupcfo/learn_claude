@@ -1,0 +1,11 @@
+[
+  { "title": "Q3 board pre-read",         "goalId": "board-preread",     "emoji": "📑", "blurb": "12-page narrative + appendix, built from raw exec-team notes in 40 minutes." },
+  { "title": "Series-B pitch deck",       "goalId": "pitch-deck",        "emoji": "🚀", "blurb": "16 slides with story arc, traction, and ask — drafted before the partner meeting." },
+  { "title": "FY26 financial model",      "goalId": "financial-model",   "emoji": "💰", "blurb": "Three-scenario xlsx with formulas and a one-page output summary." },
+  { "title": "Vendor contract redline",   "goalId": "contract-review",   "emoji": "⚖️", "blurb": "Marked-up SaaS MSA with a one-page risk summary for legal." },
+  { "title": "Mobile app login mockup",   "goalId": "figma-mockup",      "emoji": "🎨", "blurb": "Three Figma frames generated and iterated — handed straight to design." },
+  { "title": "Investor monthly update",   "goalId": "investor-update",   "emoji": "💼", "blurb": "Crisp 800-word update with metrics callouts and an ask." },
+  { "title": "Head of Product hiring kit","goalId": "hiring-kit",        "emoji": "🧑‍💼", "blurb": "JD, screening rubric, and 8 interview questions tailored to the role." },
+  { "title": "Sales pricing memo",        "goalId": "pricing-analysis",  "emoji": "🏷️", "blurb": "Three pricing options compared with revenue and risk implications." },
+  { "title": "Onboarding SOP",            "goalId": "sop",               "emoji": "⚙️", "blurb": "Day-1-to-30 employee onboarding SOP, ready to drop into Notion." }
+]
