@@ -21,7 +21,7 @@ Output as a table: name | email | draft subject | draft body. Do not send anythi
 - For tighter personalization: *"For each person, include a sentence referencing the most recent topic from our thread — quote a 5-7 word phrase."*
 - To match your voice, paste 3 sent emails of yours and say: *"Match this voice."*
 
-## ③ How to run it
+## ③ How to send the emails
 
 **Claude Cowork:** generate the table → spot-check → for the ones you approve, ask Claude to send (or copy/paste into Gmail yourself for the first batch).
 

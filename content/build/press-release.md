@@ -27,7 +27,7 @@ Tone: factual, no hyperbole. Journalists hate adjectives — every claim must be
 - Quotes should sound like a human, not a press release. *"Rewrite the CEO quote as if said over coffee."*
 - If the press release feels long, it is. *"Cut to 350 words."*
 
-## ③ How to run it
+## ③ How to distribute the press release
 
 **Claude Cowork:** iterate in chat, copy into your distribution tool (PR Newswire, your website CMS, or a doc to send journalists).
 

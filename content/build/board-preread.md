@@ -24,7 +24,7 @@ Style: every section header should be a sentence (the takeaway), not a topic. E.
 - Trim asks ruthlessly. If you have 6 asks, you have 0. Pick 3.
 - Add page numbers and a 1-line footer with the company name and confidentiality marker.
 
-## ③ How to run it
+## ③ How to assemble the board pre-read
 
 **Claude Cowork:** assemble in chat → copy to Google Docs → File → Download → PDF.
 

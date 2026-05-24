@@ -17,7 +17,7 @@ Tone: senior strategy consultant, not blog post. Cite sources inline. Flag anyth
 - For depth: *"Pick the one most surprising insight and write a full page on it."*
 - For board use, ask: *"What's the one chart that would communicate this most clearly?"* Then build it separately.
 
-## ③ How to run it
+## ③ How to publish the scan
 
 **Claude Cowork** is best — Claude can search the web. Open at [claude.ai](https://claude.ai).
 

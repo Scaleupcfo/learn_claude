@@ -16,6 +16,8 @@ export interface Goal {
   blurb: string;
   estimatedMinutes: number;
   requiresConnectors?: string[];
+  /** If false, the goal is shown in the Build hub but greyed out as "Coming soon". */
+  unlocked?: boolean;
 }
 
 export interface Module {
@@ -48,6 +50,7 @@ export const CONNECTORS: Connector[] = [
 
 export const GOALS: Goal[] = [
   // Communications & Documents
+  { id: 'functional-spec-doc', column: 'communications', icon: '📐', title: 'Functional Spec doc (SAP style)',  blurb: 'Five-step prompt that produces a clean SAP-style functional specification.', estimatedMinutes: 20, unlocked: true },
   { id: 'document',         column: 'communications', icon: '📄', title: 'A polished document',                blurb: 'Memo, SOP, or policy — clear and on-brand.',                       estimatedMinutes: 15 },
   { id: 'investor-update',  column: 'communications', icon: '💼', title: 'An investor update',                 blurb: 'Monthly or quarterly shareholder letter from your notes.',         estimatedMinutes: 15 },
   { id: 'press-release',    column: 'communications', icon: '📰', title: 'A press release',                    blurb: 'External announcement with quote and boilerplate.',                estimatedMinutes: 12 },

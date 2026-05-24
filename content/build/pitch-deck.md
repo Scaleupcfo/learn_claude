@@ -33,7 +33,7 @@ Rules:
 - Test the story by reading just the headers. They should tell the whole pitch on their own.
 - Ask: *"What's the strongest objection a partner would raise? Add a backup slide that answers it."*
 
-## ③ How to run it
+## ③ How to create the pitch deck
 
 **Claude Cowork** + **Google Slides** is the fastest path.
 **Claude Code** if you want everything in version control: generate a markdown outline first, iterate, then push to Slides/PowerPoint.

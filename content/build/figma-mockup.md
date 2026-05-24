@@ -22,7 +22,7 @@ After generating: show me a screenshot of the frame and a 3-bullet critique of w
 
 > **Figma-specific tip:** Claude is much better at editing existing frames than creating from scratch. If you have any base design, point Claude at it first.
 
-## ③ How to run it
+## ③ How to use the Figma file
 
 **Claude Cowork** is the natural place for this — Figma renders inline.
 

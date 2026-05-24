@@ -23,7 +23,7 @@ Conventions:
 - Test edge cases: *"What happens if churn doubles in month 12? Add a row that shows it."*
 - Ask: *"Where are the most fragile formulas? Add a comment explaining each."*
 
-## ③ How to run it
+## ③ How to create the financial model
 
 **Claude Cowork** creates the sheet at a URL you can open. Eyeball each tab. If it's right, save. If not, ask Claude to fix the specific cell range.
 

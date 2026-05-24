@@ -11,7 +11,6 @@ import SetupConnectorsPage from './pages/SetupConnectorsPage';
 import ConnectorDetailPage from './pages/ConnectorDetailPage';
 import BuildHubPage from './pages/BuildHubPage';
 import GoalPage from './pages/GoalPage';
-import GalleryPage from './pages/GalleryPage';
 import GlossaryPage from './pages/GlossaryPage';
 import HelpPage from './pages/HelpPage';
 import CertificatePage from './pages/CertificatePage';
@@ -50,7 +49,6 @@ function App() {
         <Route path="/setup/connectors/:id" element={<ConnectorDetailPage />} />
         <Route path="/build" element={<BuildHubPage />} />
         <Route path="/build/:goalId" element={<GoalPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/glossary" element={<GlossaryPage />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/certificate" element={<CertificatePage />} />

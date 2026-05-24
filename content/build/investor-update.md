@@ -20,7 +20,7 @@ Tone: [tone]. Investors will read this in under 90 seconds — make every line e
 - Ask Claude: *"What would a savvy investor flag as suspicious in this update?"* — then address those before sending.
 - Keep the tone honest about lowlights. Investors trust founders who name problems.
 
-## ③ How to run it
+## ③ How to send the investor update
 
 **In Claude Cowork:** paste the skeleton + numbers in chat, iterate, then copy into your investor-update email or doc.
 

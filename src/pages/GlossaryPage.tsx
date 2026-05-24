@@ -5,7 +5,7 @@ interface Entry {
   term: string;
   plainEnglish: string;
   cxoAnalogy?: string;
-  seeAlso?: string[];
+  examples?: string[];
 }
 
 export default function GlossaryPage() {
@@ -43,6 +43,21 @@ export default function GlossaryPage() {
             <p className="text-sm text-ink-700">{e.plainEnglish}</p>
             {e.cxoAnalogy && (
               <p className="text-sm text-ink-500 mt-2"><em>Think of it like:</em> {e.cxoAnalogy}</p>
+            )}
+            {e.examples && e.examples.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-ink-100">
+                <div className="text-xs font-semibold uppercase tracking-wide text-ink-500 mb-2">
+                  Examples
+                </div>
+                <ul className="space-y-2">
+                  {e.examples.map((ex, i) => (
+                    <li key={i} className="text-sm text-ink-700 pl-4 relative">
+                      <span className="absolute left-0 top-1.5 w-1.5 h-1.5 rounded-full bg-brand-400" />
+                      {ex}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </li>
         ))}

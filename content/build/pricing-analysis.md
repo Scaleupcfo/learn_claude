@@ -22,7 +22,7 @@ Be honest about uncertainty. Don't pick a number with false precision." />
 - For grandfathering: *"How should we treat existing customers under each option?"*
 - For board memos, add: *"Write a 1-paragraph executive summary at the top."*
 
-## ③ How to run it
+## ③ How to share the analysis
 
 **Claude Cowork** for the analysis; copy into a Google Doc to share with the pricing committee.
 

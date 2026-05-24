@@ -1,40 +1,43 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { getProfile, listProgress, moduleStatusMap, isCertificateEligible } from '../lib/progress';
-import type { Profile } from '../lib/database.types';
-import type { ModuleStatus } from '../lib/database.types';
+import type { Profile, ModuleStatus } from '../lib/database.types';
 import { MODULES, getGoal, goalModuleId } from '../lib/curriculum';
-import ChecklistRail from '../components/ChecklistRail';
 
 export default function DashboardPage() {
   const { user } = useAuth();
+  const location = useLocation();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [status, setStatus] = useState<Map<string, ModuleStatus>>(new Map());
   const [eligible, setEligible] = useState(false);
 
+  const load = useCallback(() => {
+    if (!user) return;
+    void getProfile(user.id).then(setProfile);
+    void listProgress(user.id).then((rows) => {
+      setStatus(moduleStatusMap(rows));
+      setEligible(isCertificateEligible(rows));
+    });
+  }, [user]);
+
+  useEffect(() => {
+    load();
+  }, [load, location.pathname]);
+
   useEffect(() => {
     if (!user) return;
-    const load = () => {
-      void getProfile(user.id).then(setProfile);
-      void listProgress(user.id).then((rows) => {
-        setStatus(moduleStatusMap(rows));
-        setEligible(isCertificateEligible(rows));
-      });
-    };
-    load();
-    const onVis = () => {
-      if (!document.hidden) load();
-    };
+    const onVis = () => { if (!document.hidden) load(); };
     document.addEventListener('visibilitychange', onVis);
     window.addEventListener('focus', load);
+    window.addEventListener('progress:update', load);
     return () => {
       document.removeEventListener('visibilitychange', onVis);
       window.removeEventListener('focus', load);
+      window.removeEventListener('progress:update', load);
     };
-  }, [user]);
+  }, [user, load]);
 
-  // The "next" module: first required setup not completed, else primary goal, else any pending.
   const nextModule =
     MODULES.filter((m) => m.required && m.id !== 'ship.certificate').find(
       (m) => status.get(m.id) !== 'completed',
@@ -49,72 +52,54 @@ export default function DashboardPage() {
     return '/dashboard';
   };
 
+  const minutes = Math.floor((profile?.total_time_seconds ?? 0) / 60);
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6">
-      <div className="space-y-6">
-        <div>
-          <h1>Hi {profile?.full_name?.split(' ')[0] ?? 'there'} 👋</h1>
-          <p className="mt-1 text-ink-600">
-            You've invested <strong>{Math.floor((profile?.total_time_seconds ?? 0) / 60)} min</strong> so far.
-            Goal: feel comfortable with Claude in about 3 hours.
-          </p>
-        </div>
-
-        {nextModule && (
-          <div className="card">
-            <div className="text-xs uppercase tracking-wide font-semibold text-brand-700">Up next</div>
-            <h2 className="mt-1 mb-1">{nextModule.title}</h2>
-            <p className="text-sm text-ink-500">
-              About {nextModule.estimatedMinutes} minutes ·{' '}
-              {status.get(nextModule.id) === 'in_progress' ? 'In progress' : 'Not started'}
-            </p>
-            <Link to={linkFor(nextModule.id)} className="btn-primary mt-4 inline-flex no-underline">
-              {status.get(nextModule.id) === 'in_progress' ? 'Resume →' : 'Start →'}
-            </Link>
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <QuickCard icon="🛠️" title="Install Claude Code" to="/setup/install" desc="OS-detected install with copy-paste commands." />
-          <QuickCard icon="🔌" title="Wire your connectors" to="/setup/connectors" desc="Pick from Gmail, Drive, Figma, Slack, and more." />
-          <QuickCard icon="🚀" title="Build your first thing" to="/build" desc="23 CXO-shaped goals. Pick what fits today." />
-          <QuickCard icon="🖼️" title="See sample outputs" to="/gallery" desc="What real CXOs have built with Claude." />
-        </div>
-
-        {eligible && status.get('ship.certificate') !== 'completed' && (
-          <div className="card border-brand-300 bg-brand-50/40">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">🏆</span>
-              <div className="flex-1">
-                <h3 className="mt-0">You've earned your certificate</h3>
-                <p className="text-sm text-ink-600">
-                  You've completed the setup and at least one goal in every column.
-                </p>
-              </div>
-              <Link to="/certificate" className="btn-primary no-underline">Claim →</Link>
-            </div>
-          </div>
-        )}
-
-        {profile?.primary_goal && (
-          <div className="text-xs text-ink-500">
-            Your stated first goal: <strong>{getGoal(profile.primary_goal)?.title}</strong> ·{' '}
-            <Link to={`/build/${profile.primary_goal}`}>Open</Link>
-          </div>
-        )}
+    <div className="max-w-2xl mx-auto text-center">
+      <div className="mt-6">
+        <h1 className="text-3xl">
+          Hi {profile?.full_name?.split(' ')[0] ?? 'there'} <span className="inline-block">👋</span>
+        </h1>
+        <p className="mt-2 text-ink-600">
+          You've invested <strong>{minutes} min</strong> · Goal: feel comfortable with Claude in about 3 hours.
+        </p>
       </div>
 
-      <ChecklistRail />
-    </div>
-  );
-}
+      {nextModule && (
+        <div className="card mt-8 text-left">
+          <div className="text-xs uppercase tracking-wide font-semibold text-brand-700">Up next</div>
+          <h2 className="mt-1 mb-1">{nextModule.title}</h2>
+          <p className="text-sm text-ink-500">
+            About {nextModule.estimatedMinutes} minutes ·{' '}
+            {status.get(nextModule.id) === 'in_progress' ? 'In progress' : 'Not started'}
+          </p>
+          <Link to={linkFor(nextModule.id)} className="btn-primary mt-4 inline-flex no-underline">
+            {status.get(nextModule.id) === 'in_progress' ? 'Resume →' : 'Start →'}
+          </Link>
+        </div>
+      )}
 
-function QuickCard({ icon, title, desc, to }: { icon: string; title: string; desc: string; to: string }) {
-  return (
-    <Link to={to} className="card hover:shadow-pop transition no-underline text-ink-800">
-      <div className="text-2xl">{icon}</div>
-      <h3 className="mt-2 mb-1">{title}</h3>
-      <p className="text-sm text-ink-500">{desc}</p>
-    </Link>
+      {eligible && status.get('ship.certificate') !== 'completed' && (
+        <div className="card mt-6 border-brand-300 bg-brand-50/40 text-left">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">🏆</span>
+            <div className="flex-1">
+              <h3 className="mt-0">You've earned your certificate</h3>
+              <p className="text-sm text-ink-600">
+                Setup complete and at least one goal in every column.
+              </p>
+            </div>
+            <Link to="/certificate" className="btn-primary no-underline">Claim →</Link>
+          </div>
+        </div>
+      )}
+
+      {profile?.primary_goal && (
+        <p className="text-xs text-ink-500 mt-8">
+          Your stated first goal: <strong>{getGoal(profile.primary_goal)?.title ?? profile.primary_goal}</strong>{' '}
+          · <Link to={`/build/${profile.primary_goal}`}>Open</Link>
+        </p>
+      )}
+    </div>
   );
 }

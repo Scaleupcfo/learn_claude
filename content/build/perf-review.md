@@ -23,7 +23,7 @@ Rules: every claim must be supported by a specific example from the inputs. If y
 - For tough feedback: *"Rewrite this section to be both honest and kind. Don't soften the message."*
 - Always edit before delivering. Reviews are signed by you, not Claude.
 
-## ③ How to run it
+## ③ How to deliver the review
 
 **Claude Cowork** is best — private mode (do not connect this conversation to public connectors).
 

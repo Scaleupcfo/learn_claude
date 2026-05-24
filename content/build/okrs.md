@@ -22,7 +22,7 @@ Rules:
 - Stress-test: *"What's the most ambitious version of each KR? What's the safest? Pick somewhere in between."*
 - Sanity check: *"Where might these OKRs incentivize bad behavior?"*
 
-## ③ How to run it
+## ③ How to publish the OKRs
 
 **Claude Cowork** for drafting. Save the final OKRs in Notion or your OKR tool with owners.
 

@@ -24,7 +24,7 @@ Your first draft will be close — never perfect. Here's how to get to "shippabl
 
 Before you ship, ask Claude: *"Read this back to me and tell me what's still vague."*
 
-## ③ How to run it
+## ③ How to publish the document
 
 **In VS Code / with Claude Code:**
 ```bash

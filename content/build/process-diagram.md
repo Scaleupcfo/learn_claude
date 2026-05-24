@@ -18,7 +18,7 @@ Output as a Mermaid code block I can paste into Notion or any Mermaid renderer."
 - Ask: *"Where in this diagram does the process most likely break? Add a red note at each weak point."*
 - For complex processes, split into two diagrams (happy path vs. exception flows).
 
-## ③ How to run it
+## ③ How to publish the diagram
 
 Copy the Mermaid block. Paste into:
 - **Notion** — start a Mermaid block (`/code`, language: Mermaid).

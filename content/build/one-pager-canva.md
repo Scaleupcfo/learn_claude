@@ -22,7 +22,7 @@ Voice: skip jargon. Use second person ('you'). One specific number in each benef
 - Ask Claude: *"Show me 3 headline variants — emotional, rational, and metric-driven."*
 - For social proof, paste actual quotes. Don't let Claude invent customer names.
 
-## ③ How to run it
+## ③ How to publish the one-pager
 
 Claude creates the Canva file. Open the URL Claude returns, review, polish manually for spacing/icons, then download as PDF or PNG.
 

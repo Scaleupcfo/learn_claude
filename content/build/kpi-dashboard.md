@@ -20,7 +20,7 @@ Source data:
 - Ask: *"What's the most important number on this dashboard? Make it visually 2x the others."*
 - Add a thresholds row: *"If churn > 2%, color the cell red. If NRR < 110%, color amber."*
 
-## ③ How to run it
+## ③ How to deploy the dashboard
 
 Open the sheet Claude created. Bookmark it. Update once a week (or wire it to your data source so it self-updates).
 

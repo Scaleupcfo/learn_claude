@@ -34,7 +34,7 @@ Rules:
 - Ask: *"Which 3 slides will get the most pushback from a sophisticated board? Strengthen them."*
 - For visuals: *"Suggest a chart type for the KPI slide. Describe what it should show."*
 
-## ③ How to run it
+## ③ How to create the board deck
 
 **Claude Cowork:** Claude will create the actual Slides file. Open the link, polish, present.
 

@@ -19,7 +19,7 @@ Produce:
 - Ask: *"Rewrite the JD so it's clear within 30 seconds whether someone is qualified."*
 - For interview questions, ask: *"Generate two more — one for grit, one for self-awareness."*
 
-## ③ How to run it
+## ③ How to launch the kit
 
 **Claude Cowork:** assemble, copy into your ATS (Greenhouse, Lever, etc.).
 

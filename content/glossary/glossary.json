@@ -1,22 +1,182 @@
 [
-  { "term": "Claude", "plainEnglish": "Anthropic's AI assistant. You give it instructions in plain English; it returns text, code, images, or actions.", "cxoAnalogy": "An always-on analyst who is fast, literal, and tireless — but needs a clear brief." },
-  { "term": "Claude Code", "plainEnglish": "The terminal/IDE app that lets Claude read and edit files on your computer.", "cxoAnalogy": "Claude with hands. It can open documents, change them, and run things — not just chat." },
-  { "term": "Claude Cowork", "plainEnglish": "The browser experience of working with Claude inside web apps and shared spaces.", "cxoAnalogy": "Claude in the meeting room — visible to others on your team." },
-  { "term": "Prompt", "plainEnglish": "The instruction you give Claude. The clearer the brief, the better the output.", "cxoAnalogy": "A brief to a contractor: scope, audience, constraints, success criteria." },
-  { "term": "Context", "plainEnglish": "Everything Claude can 'see' in this conversation — your prompt, attached files, and prior messages.", "cxoAnalogy": "Background materials in a meeting — what Claude already has on the table." },
-  { "term": "Model", "plainEnglish": "A specific version of Claude. Bigger models are smarter but slower; smaller ones are faster and cheaper.", "cxoAnalogy": "Senior vs junior consultant. Use senior for hard things, junior for fast and easy ones." },
-  { "term": "Opus", "plainEnglish": "Anthropic's most capable Claude model. Use it for complex, multi-step thinking.", "cxoAnalogy": "Your partner at the firm." },
-  { "term": "Sonnet", "plainEnglish": "Anthropic's balanced Claude model. Strong general default for most work.", "cxoAnalogy": "Your VP — handles the bulk of work, well." },
-  { "term": "Haiku", "plainEnglish": "Anthropic's fastest, cheapest Claude model. Use it for short, simple tasks at high volume.", "cxoAnalogy": "Your fastest analyst — perfect for triage and quick passes." },
-  { "term": "Token", "plainEnglish": "The unit Claude reads and writes in — roughly a word piece. You're billed per token in and out.", "cxoAnalogy": "Like billable minutes. Pay attention to how many you spend on long inputs." },
-  { "term": "MCP", "plainEnglish": "Model Context Protocol — a standard that lets Claude talk to other apps (your email, drive, calendar, etc.) through 'MCP servers'.", "cxoAnalogy": "The USB-C of AI integrations. Plug a new tool in once and any MCP-aware AI can use it." },
-  { "term": "Connector", "plainEnglish": "A specific MCP server you've enabled, e.g. Gmail or Figma. Connectors give Claude permission to read/write inside that app.", "cxoAnalogy": "A signed access pass for a specific building." },
-  { "term": "Subagent", "plainEnglish": "A child Claude session you can spin up to handle a piece of work, with its own scratchpad and tools.", "cxoAnalogy": "Delegating a sub-task to a junior so the partner can keep focus on the big picture." },
-  { "term": "Hook", "plainEnglish": "A small script Claude Code runs automatically at certain points (before a tool call, after a file edit, etc.).", "cxoAnalogy": "An office SOP — 'every time X happens, do Y'." },
-  { "term": "Slash command", "plainEnglish": "A shortcut you type into Claude Code starting with '/' to trigger a specific behavior (e.g. /review).", "cxoAnalogy": "Speed dial. One short keystroke triggers a complex routine." },
-  { "term": "Worktree", "plainEnglish": "A separate working copy of a code project so two things can be edited without stepping on each other.", "cxoAnalogy": "A second copy of a contract you can mark up without messing up the original." },
-  { "term": "Skill", "plainEnglish": "A reusable bundle of instructions Claude follows when a relevant task comes up.", "cxoAnalogy": "A playbook your team can apply when the right situation arises." },
-  { "term": "Permission", "plainEnglish": "What Claude is allowed to read or do. You can grant or revoke at a granular level.", "cxoAnalogy": "Role-based access. Just like with employees — give the minimum needed." },
-  { "term": "Hallucination", "plainEnglish": "When Claude states something confidently that isn't true. Less common with strong context and verification.", "cxoAnalogy": "An overconfident new hire winging an answer. Always verify before you ship." },
-  { "term": "Temperature", "plainEnglish": "A dial for randomness. Low = consistent and conservative. High = more creative and varied.", "cxoAnalogy": "Brainstorm mode vs. board-paper mode." }
+  {
+    "term": "Claude",
+    "plainEnglish": "Claude is Anthropic's AI assistant. You type instructions in normal English, and it replies with text, code, images, or by taking actions like reading your files. Think of it as a tireless analyst sitting next to you, available 24/7.",
+    "cxoAnalogy": "An always-on analyst who is fast and literal — but needs a clear brief, the same way a contractor does.",
+    "examples": [
+      "Ask Claude: 'Read this 30-page contract and tell me the top 5 risks in plain English.' It returns a summary in 30 seconds.",
+      "Ask Claude: 'Draft a friendly email to a customer apologizing for the late delivery and offering a 10% discount.' It writes the email; you tweak and send."
+    ]
+  },
+  {
+    "term": "Claude Code",
+    "plainEnglish": "Claude Code is the Claude app that runs on your laptop. Unlike chat-only Claude, this version can read files on your computer, edit them, and run commands you approve — useful when you want Claude to actually DO things, not just describe them.",
+    "cxoAnalogy": "Claude with hands. It can open documents on your machine, change them, and run things — not just chat.",
+    "examples": [
+      "Open Claude Code in your terminal, point it at a folder of spreadsheets, and say: 'Combine these into one master sheet with totals.' It does it.",
+      "Tell Claude Code: 'Read all my meeting notes from last week and write a summary file.' It scans the folder and creates the summary."
+    ]
+  },
+  {
+    "term": "Claude Cowork",
+    "plainEnglish": "Claude Cowork is the browser version of Claude — it lives at claude.ai. You use it for everyday chat, sharing conversations with your team, and quick tasks that don't need access to your laptop's files.",
+    "cxoAnalogy": "Claude in the meeting room — visible to others on your team, accessible from any browser.",
+    "examples": [
+      "Open claude.ai on your phone during a board meeting, paste a question, get an instant draft response to share.",
+      "Share a Claude conversation link with your COO so they can continue the thread you started."
+    ]
+  },
+  {
+    "term": "Prompt",
+    "plainEnglish": "A prompt is the instruction you give Claude. The better your brief, the better the output. A vague prompt gets a vague answer; a specific prompt with context gets exactly what you wanted.",
+    "cxoAnalogy": "A brief to a contractor: state the scope, audience, format, constraints, and what 'done' looks like.",
+    "examples": [
+      "Bad prompt: 'Write a memo.' Good prompt: 'Write a 300-word memo to my CEO explaining why we should delay the launch by two weeks. Tone: confident, not apologetic.'",
+      "Bad prompt: 'Make a slide.' Good prompt: 'Make a 1-slide summary for a board audience that shows Q3 revenue, the variance to plan, and the top reason for the variance.'"
+    ]
+  },
+  {
+    "term": "Context",
+    "plainEnglish": "Context is everything Claude can 'see' during your conversation — your latest prompt, any files you attached, and the earlier messages in this chat. Claude has no memory of previous chats; each new conversation starts fresh unless you give it context.",
+    "cxoAnalogy": "Background materials in a meeting — what Claude already has on the table to work with.",
+    "examples": [
+      "Paste last quarter's board deck and say: 'Use this as context. Now write the Q4 version.' Claude matches your style and structure.",
+      "Attach a CSV file and ask: 'Use this data as context. Which 3 customers are most at risk of churning?' Claude reasons from the actual data, not generic advice."
+    ]
+  },
+  {
+    "term": "Model",
+    "plainEnglish": "A model is a specific version of Claude. Bigger models think more carefully but cost more and respond slower; smaller models are faster and cheaper but less sharp on hard problems. You can pick which one you use.",
+    "cxoAnalogy": "Senior vs. junior consultant. Use senior for complex strategy, junior for fast research and triage.",
+    "examples": [
+      "Use the biggest model (Opus) when reviewing a complex 50-page contract — you want maximum care.",
+      "Use the smallest model (Haiku) when tagging 500 customer emails by topic — you want speed and low cost."
+    ]
+  },
+  {
+    "term": "Opus",
+    "plainEnglish": "Opus is Anthropic's most capable Claude model — the one to use when the problem is hard, multi-step, or high-stakes. It's slower and pricier than the others, but worth it when quality really matters.",
+    "cxoAnalogy": "Your partner at the consulting firm. You don't put them on triage — you save them for the board meeting.",
+    "examples": [
+      "Pricing strategy for a new SKU: ask Opus to weigh three options with trade-offs.",
+      "Drafting an investor letter that needs to land just right: Opus gives you a stronger first draft."
+    ]
+  },
+  {
+    "term": "Sonnet",
+    "plainEnglish": "Sonnet is the balanced Claude model — strong enough for almost any everyday task, faster than Opus, cheaper too. This is the right default for most CXO work.",
+    "cxoAnalogy": "Your VP — handles the bulk of work, well. Solid all-rounder.",
+    "examples": [
+      "Daily meeting prep, email triage, drafting SOPs — Sonnet handles all of these well.",
+      "Summarizing a 20-page market report into a 1-page brief: Sonnet is fast and accurate enough."
+    ]
+  },
+  {
+    "term": "Haiku",
+    "plainEnglish": "Haiku is the fastest, cheapest Claude model. Use it for short, simple tasks where you need speed or you're running the same thing many times in a row.",
+    "cxoAnalogy": "Your fastest analyst — perfect for triage and quick passes, not deep work.",
+    "examples": [
+      "Auto-tagging 1,000 incoming support tickets by urgency: Haiku at scale.",
+      "Quick rewrites: 'make this sentence punchier' — instant with Haiku."
+    ]
+  },
+  {
+    "term": "Token",
+    "plainEnglish": "A token is the unit Claude reads and writes in. Roughly, one token equals 3-4 characters of text — so 100 words is about 130 tokens. You pay per token in (your prompt) and per token out (Claude's response).",
+    "cxoAnalogy": "Like billable minutes for a lawyer. Pay attention to long inputs and verbose outputs.",
+    "examples": [
+      "Pasting an entire 300-page contract uses ~80,000 tokens. Pasting just the 5 relevant sections uses ~3,000. Same answer, 25× cheaper.",
+      "Asking for 'a 200-word summary' is cheaper than 'a comprehensive analysis' — and often more useful."
+    ]
+  },
+  {
+    "term": "MCP",
+    "plainEnglish": "MCP stands for Model Context Protocol. It's a shared standard that lets Claude (and other AI tools) plug into your apps — Gmail, Drive, Calendar, Figma, Salesforce, etc. Once an app speaks MCP, any AI that supports MCP can use it.",
+    "cxoAnalogy": "The USB-C of AI integrations. Plug a tool in once, every MCP-compatible AI can use it.",
+    "examples": [
+      "You install the Gmail MCP server. Now Claude can read and reply to your inbox without you copy-pasting.",
+      "Figma supports MCP. So Claude can open Figma files, see your designs, and propose edits."
+    ]
+  },
+  {
+    "term": "Connector",
+    "plainEnglish": "A connector is a specific MCP server you've turned on — Gmail, Slack, Notion, etc. Connectors give Claude permission to read or change data inside that app. You add or remove them with one click.",
+    "cxoAnalogy": "A signed access pass for a specific building. The pass to Gmail doesn't open the door to Slack.",
+    "examples": [
+      "Add the Calendar connector. Now Claude can see your meetings and propose times that don't conflict.",
+      "Remove the Salesforce connector. Claude can no longer touch your CRM until you add it back."
+    ]
+  },
+  {
+    "term": "Subagent",
+    "plainEnglish": "A subagent is a child Claude session that handles a piece of a bigger task on its own — with its own scratch space and tools. You spin one up when you want to delegate a sub-task without losing focus on the main thread.",
+    "cxoAnalogy": "Delegating a sub-task to a junior so the partner can keep focus on the big picture.",
+    "examples": [
+      "Main Claude: 'Plan our 2027 strategy.' It spawns a subagent for 'do the competitive scan' and another for 'pull the financial baseline'. Each works independently, then reports back.",
+      "Coding example: one subagent writes tests while another writes the feature. Then they merge."
+    ]
+  },
+  {
+    "term": "Hook",
+    "plainEnglish": "A hook is a small script Claude Code runs automatically at certain moments — before it uses a tool, after it edits a file, before it commits to git, etc. Useful for enforcing rules without thinking about them.",
+    "cxoAnalogy": "An office SOP — 'every time X happens, do Y.' Runs without anyone reminding it.",
+    "examples": [
+      "A hook that runs your test suite automatically after any file change — so you catch bugs immediately.",
+      "A hook that blocks Claude from editing files in your '/secrets' folder — extra safety guardrail."
+    ]
+  },
+  {
+    "term": "Slash command",
+    "plainEnglish": "A slash command is a shortcut you type into Claude Code starting with a '/' that triggers a specific routine — like /review, /summarize, /commit. Saves you from re-typing the same instruction every day.",
+    "cxoAnalogy": "Speed dial. One keystroke triggers a complex routine you'd otherwise type out.",
+    "examples": [
+      "Type '/review' and Claude reviews your last code change against your style guide.",
+      "Type '/board-prep' and Claude pulls together your monthly board-meeting brief in your preferred format."
+    ]
+  },
+  {
+    "term": "Worktree",
+    "plainEnglish": "A worktree is a separate working copy of a project so two pieces of work can happen at the same time without stepping on each other. Mainly a developer concept — useful when you want Claude to try something experimental without touching your main version.",
+    "cxoAnalogy": "A second copy of a contract you can mark up freely without messing up the original.",
+    "examples": [
+      "You have a working app. Claude opens a worktree to try a risky refactor — your main version stays untouched. If it works, you merge; if not, you delete the worktree.",
+      "Two simultaneous experiments: one worktree for 'fancy redesign', one for 'small tweak'. Compare side by side."
+    ]
+  },
+  {
+    "term": "Skill",
+    "plainEnglish": "A skill is a reusable bundle of instructions and resources Claude follows when a relevant task comes up. Think of it as a saved playbook — write it once, Claude uses it forever after.",
+    "cxoAnalogy": "A playbook your team can apply when the right situation arises. New hires read it on day one.",
+    "examples": [
+      "A 'board-meeting-prep' skill that tells Claude exactly which docs to pull, in what order, with what summary format.",
+      "A 'customer-escalation' skill: when a customer complaint comes in, follow these 7 steps."
+    ]
+  },
+  {
+    "term": "Permission",
+    "plainEnglish": "Permissions are the rules about what Claude is allowed to read, write, or delete. You grant or revoke them per connector, per folder, even per command. Best practice: give the minimum that lets the work happen.",
+    "cxoAnalogy": "Role-based access for employees. The intern doesn't get the master keys.",
+    "examples": [
+      "Grant Claude read-only access to your /finance folder — it can analyze but never overwrite.",
+      "Block Claude from deleting any file without your one-click approval. Safety net for accidents."
+    ]
+  },
+  {
+    "term": "Hallucination",
+    "plainEnglish": "A hallucination is when Claude states something confidently that isn't true — invented sources, made-up numbers, fictional people. Less common with strong context and verification, but it happens. Always check facts that matter.",
+    "cxoAnalogy": "An overconfident new hire winging an answer. Verify before you ship.",
+    "examples": [
+      "Claude cites a Harvard Business Review article from 2024 that doesn't exist. Catch it by asking: 'Give me the URL.'",
+      "Claude says your churn last quarter was 4.2% — but you never told it the real number. Verify before quoting it."
+    ]
+  },
+  {
+    "term": "Temperature",
+    "plainEnglish": "Temperature is a dial that controls how creative versus how predictable Claude's responses are. Low = consistent, conservative, repeatable. High = varied, creative, surprising. Most CXO work uses low-to-medium.",
+    "cxoAnalogy": "Brainstorm mode vs. board-paper mode.",
+    "examples": [
+      "Low temperature for legal redlines — you want the same careful answer every time.",
+      "Higher temperature when brainstorming product names — you want variety, not the same five suggestions."
+    ]
+  }
 ]

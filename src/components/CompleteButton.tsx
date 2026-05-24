@@ -27,6 +27,8 @@ export default function CompleteButton({ moduleId, label, nextPath, className = 
     setErr(null);
     try {
       await setModuleStatus(user.id, moduleId, 'completed');
+      // Notify any live components (sidebar checklist, dashboard) to refresh.
+      window.dispatchEvent(new CustomEvent('progress:update', { detail: { moduleId } }));
       setState('done');
       if (nextPath) {
         window.setTimeout(() => nav(nextPath), 700);

@@ -27,7 +27,7 @@ Tech rules:
 - For style: *"Match the visual feel of [URL — e.g. stripe.com] without copying their copy."*
 - For polish: *"Increase whitespace between sections. Use 80px vertical padding on each section."*
 
-## ③ How to run it
+## ③ How to publish the page
 
 **Non-VS-Code users:** Claude returns the HTML. Copy it. Save it as `index.html` on your computer. Double-click to open in any browser.
 

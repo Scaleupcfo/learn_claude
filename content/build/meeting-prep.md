@@ -18,7 +18,7 @@ Source: my Gmail and Drive. Don't invent — say 'no record' if nothing's there.
 - After your first brief, ask: *"For [MEETING], pull the most recent doc we shared with [COMPANY] and summarize their reaction."*
 - For recurring meetings, save a slash command or prompt template — same skeleton, different week.
 
-## ③ How to run it
+## ③ How to use the briefs
 
 **Claude Cowork:** run before your day starts. Copy briefs into a doc you keep open during meetings.
 

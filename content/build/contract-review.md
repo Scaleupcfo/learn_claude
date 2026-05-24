@@ -19,7 +19,7 @@ Contract text:
 - For complex clauses: *"Explain Section 7 in plain English, then describe two scenarios where it could hurt us."*
 - Ask: *"What's missing that a careful counterparty would have included?"*
 
-## ③ How to run it
+## ③ How to apply the redlines
 
 **Claude Cowork** for the review.
 

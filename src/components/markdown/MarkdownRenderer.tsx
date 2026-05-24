@@ -4,6 +4,8 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Term from './Term';
 import PromptSkeleton from './PromptSkeleton';
+import StepwisePrompt from './StepwisePrompt';
+import type { PromptStep } from './StepwisePrompt';
 import Checkpoint from './Checkpoint';
 import OSCodeBlock from './OSCodeBlock';
 import type { OS } from '../../hooks/useOS';
@@ -70,6 +72,20 @@ function preprocess(md: string): {
     const id = `ll-${counter++}`;
     components[id] = () => <Term>{body.trim()}</Term>;
     return `%%COMPONENT:${id}%%`;
+  });
+
+  // StepwisePrompt: body is a JSON array of {title, description, template}
+  md = md.replace(/<StepwisePrompt>([\s\S]*?)<\/StepwisePrompt>/g, (_m, body: string) => {
+    const id = `ll-${counter++}`;
+    let steps: PromptStep[] = [];
+    try {
+      const parsed = JSON.parse(body.trim()) as PromptStep[];
+      if (Array.isArray(parsed)) steps = parsed;
+    } catch {
+      steps = [];
+    }
+    components[id] = () => <StepwisePrompt steps={steps} />;
+    return `\n\n%%COMPONENT:${id}%%\n\n`;
   });
 
   // OSBlock: wraps multiple ```lang os``` fenced blocks.

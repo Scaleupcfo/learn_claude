@@ -22,7 +22,7 @@ Inputs / current state notes:
 - Cut steps that don't add value: *"If a step takes <30 seconds and is unambiguous, merge it into the previous one."*
 - Get a real owner to review. SOPs that nobody owns rot fast.
 
-## ③ How to run it
+## ③ How to publish the SOP
 
 **Claude Cowork:** generate, copy into Notion / Confluence / Google Docs. Add to your wiki under a Process category.
 

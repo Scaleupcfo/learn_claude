@@ -18,7 +18,7 @@ Tone: dry and specific. No corporate hedging. If you can't explain a variance fr
 - Ask Claude: *"Which variances are likely timing differences vs. real misses?"*
 - For trend analysis: *"Compare this period to the prior two. Is anything compounding?"*
 
-## ③ How to run it
+## ③ How to publish the analysis
 
 **Claude Cowork:** paste the CSV → review → copy commentary into your board pre-read.
 

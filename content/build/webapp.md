@@ -23,7 +23,7 @@ Build:
 - For changes: *"In the filter row, add a date picker that filters the table."*
 - To redesign: *"Show me three visual variants of the results table. I'll pick one."*
 
-## ③ How to run it
+## ③ How to launch the app
 
 **Non-VS-Code users:**
 1. Install Node.js if you don't have it: [nodejs.org](https://nodejs.org). Pick the LTS.

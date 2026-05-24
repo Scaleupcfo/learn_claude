@@ -6,13 +6,16 @@ import { GOALS } from '../lib/curriculum';
 
 const ROLES = ['CEO', 'CFO', 'COO', 'CMO', 'CTO', 'CPO', 'Founder', 'Other'];
 
+// v1: only three goal options offered during onboarding. Others come later.
+const WELCOME_GOAL_IDS = ['functional-spec-doc', 'webpage', 'webapp'];
+
 export default function WelcomePage() {
   const { user } = useAuth();
   const nav = useNavigate();
   const [fullName, setFullName] = useState('');
   const [role, setRole] = useState('CEO');
   const [company, setCompany] = useState('');
-  const [primaryGoal, setPrimaryGoal] = useState(GOALS[0].id);
+  const [primaryGoal, setPrimaryGoal] = useState(WELCOME_GOAL_IDS[0]);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -65,9 +68,13 @@ export default function WelcomePage() {
         </Field>
         <Field label="What do you most want to build first?">
           <select className="input" value={primaryGoal} onChange={(e) => setPrimaryGoal(e.target.value)}>
-            {GOALS.map((g) => <option key={g.id} value={g.id}>{g.icon} {g.title}</option>)}
+            {WELCOME_GOAL_IDS.map((id) => {
+              const g = GOALS.find((x) => x.id === id);
+              if (!g) return null;
+              return <option key={g.id} value={g.id}>{g.icon} {g.title}</option>;
+            })}
           </select>
-          <p className="text-xs text-ink-400 mt-1">You can change this later — and try as many as you want.</p>
+          <p className="text-xs text-ink-400 mt-1">You can change this later — more goals unlock as you finish.</p>
         </Field>
         <button onClick={save} disabled={busy || !fullName || !company} className="btn-primary mt-2 disabled:opacity-50">
           {busy ? 'Saving…' : 'Continue to dashboard →'}
