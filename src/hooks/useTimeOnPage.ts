@@ -1,12 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { addModuleTime, setModuleStatus } from '../lib/progress';
+import { addModuleTime } from '../lib/progress';
 
 // Visibility-aware ticker that batches 15s flushes to Supabase.
+// Status is managed entirely by addModuleTime — it creates a row with status
+// 'in_progress' the first time, and never downgrades 'completed' back to
+// 'in_progress' on subsequent flushes. This avoids a race where the unmount
+// flush after a "mark complete" click would overwrite the completed status.
 export function useTimeOnPage(moduleId: string | null) {
   const { user } = useAuth();
   const pendingSec = useRef(0);
-  const startedRef = useRef(false);
 
   useEffect(() => {
     if (!user || !moduleId) return;
@@ -23,13 +26,8 @@ export function useTimeOnPage(moduleId: string | null) {
       if (sec <= 0) return;
       pendingSec.current = 0;
       try {
-        if (!startedRef.current) {
-          await setModuleStatus(user.id, moduleId, 'in_progress');
-          startedRef.current = true;
-        }
         await addModuleTime(user.id, moduleId, sec);
       } catch {
-        // restore on failure
         pendingSec.current += sec;
       }
     };
