@@ -1,8 +1,25 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const LUMA_EVENT_ID = 'evt-SpL4sLSokfrmqJp';
+const LUMA_EVENT_URL = `https://luma.com/event/${LUMA_EVENT_ID}`;
+const LUMA_SCRIPT_ID = 'luma-checkout';
+
+function useLumaEmbed() {
+  useEffect(() => {
+    if (document.getElementById(LUMA_SCRIPT_ID)) return;
+    const s = document.createElement('script');
+    s.id = LUMA_SCRIPT_ID;
+    s.src = 'https://embed.lu.ma/checkout-button.js';
+    s.async = true;
+    document.body.appendChild(s);
+  }, []);
+}
+
 export default function LandingPage() {
   const { user } = useAuth();
+  useLumaEmbed();
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-ink-100 bg-white">
@@ -38,6 +55,35 @@ export default function LandingPage() {
         </section>
 
         <section className="bg-white border-y border-ink-100">
+          <div className="max-w-3xl mx-auto px-6 py-14 text-center">
+            <span className="chip bg-ink-100 text-ink-700">📅 Live workshop</span>
+            <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-ink-900">
+              Prefer learning live with a group?
+            </h2>
+            <p className="mt-3 text-ink-600 max-w-xl mx-auto">
+              Join our instructor-led session <strong>Claude Code for CAs</strong> —
+              a working session tailored for finance and accounting leaders.
+              Bring a real task you're working on; leave with it shipped.
+            </p>
+            <div className="mt-6">
+              {/*
+                Luma checkout button: keeps the data-luma-* hooks so the embed script opens
+                the in-page registration modal, but drops the default `luma-checkout--button`
+                class so we can style on-brand.
+              */}
+              <a
+                href={LUMA_EVENT_URL}
+                data-luma-action="checkout"
+                data-luma-event-id={LUMA_EVENT_ID}
+                className="btn-secondary text-base px-6 py-3 no-underline"
+              >
+                Register for the workshop →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-ink-50">
           <div className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { icon: '🛠️', title: 'Install & connect', body: 'OS-detected install. Wire Gmail, Calendar, Drive, Figma, and 13 more connectors — only what you need.' },
